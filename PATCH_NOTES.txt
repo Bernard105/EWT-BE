@@ -1,0 +1,12 @@
+This package was patched for GitHub -> Render deployment.
+
+Main changes:
+- Render Blueprint uses DATABASE_URL from fromDatabase.property=connectionString.
+- CORS now resolves from CORS_ALLOWED_ORIGINS and supports wildcard fallback.
+- FRONTEND_BASE_URL resolution now supports env var, appsettings string/array, Origin, Referer.
+- Registration now sets email_verified_at immediately.
+- Login no longer blocks unverified accounts.
+- /api/verify-email is restored for backward compatibility.
+- OAuth provider start URLs now carry the actual frontend origin instead of the backend origin.
+- DB initialization no longer requires pgcrypto.
+- Production secrets were removed from appsettings.json.

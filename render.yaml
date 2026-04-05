@@ -1,0 +1,54 @@
+services:
+  - type: web
+    name: easyworktogether-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: easyworktogether-db
+          property: connectionString
+      - key: FRONTEND_BASE_URL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: SESSION_TTL_DAYS
+        value: 30
+      - key: SYSTEM_ADMIN_EMAILS
+        sync: false
+      - key: ALLOW_FIRST_USER_SYSTEM_ADMIN_BOOTSTRAP
+        value: false
+      - key: OAuth__google__ClientId
+        sync: false
+      - key: OAuth__google__ClientSecret
+        sync: false
+      - key: OAuth__github__ClientId
+        sync: false
+      - key: OAuth__github__ClientSecret
+        sync: false
+      - key: Email__Enabled
+        sync: false
+      - key: Email__FromName
+        sync: false
+      - key: Email__FromAddress
+        sync: false
+      - key: Email__SmtpHost
+        sync: false
+      - key: Email__SmtpPort
+        sync: false
+      - key: Email__Username
+        sync: false
+      - key: Email__Password
+        sync: false
+      - key: Email__UseSsl
+        sync: false
+
+databases:
+  - name: easyworktogether-db
+    plan: free
+    postgresMajorVersion: "16"
