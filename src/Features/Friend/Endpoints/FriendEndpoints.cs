@@ -317,7 +317,7 @@ public static class FriendEndpoints
                     : BuildMessagePreview(reader.IsDBNull(6) ? "text" : reader.GetString(6), reader.IsDBNull(5) ? null : reader.GetString(5)),
                 reader.IsDBNull(7) ? null : ToIsoString(reader.GetDateTime(7)),
                 reader.IsDBNull(3) ? null : FormatPublicUserId(reader.GetString(3)),
-                reader.IsDBNull(4) ? null : reader.GetString(4))));
+                reader.IsDBNull(4) ? null : reader.GetString(4)));
         }
 
         return items;
@@ -411,7 +411,7 @@ public static class FriendEndpoints
                 null,
                 null,
                 reader.IsDBNull(3) ? null : FormatPublicUserId(reader.GetString(3)),
-                reader.IsDBNull(4) ? null : reader.GetString(4))));
+                reader.IsDBNull(4) ? null : reader.GetString(4)));
         }
 
         return items;
